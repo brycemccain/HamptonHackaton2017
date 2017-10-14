@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.hampton.game.demo.WhackAMole;
+import com.hampton.game.demo.homeScreen;
 
 public class HamptonHack extends ApplicationAdapter {
 	ScreenViewport viewport;
@@ -20,8 +21,9 @@ public class HamptonHack extends ApplicationAdapter {
 	}
 
 	public void addGameScreensHere() {
+		stateManager.setGameScreen("Home", new homeScreen());
 		stateManager.setGameScreen("Bounce", new WhackAMole());
-		stateManager.goToScreen("Bounce");
+		stateManager.goToScreen("Home");
 	}
 
 	@Override
