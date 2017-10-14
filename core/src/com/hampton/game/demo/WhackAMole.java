@@ -1,6 +1,7 @@
 package com.hampton.game.demo;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Interpolation;
@@ -22,20 +23,29 @@ public class WhackAMole extends GameScreen {
     private Actor mole;
     private float xMove;
     private float yMove;
-    private final float MAX_MOVE = 10;
+    private  float MAX_MOVE = 40;
     private int score = 0;
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
 
+    private Music slapMusic;
+    
     @Override
     public void initialize() {
         score = 0;
         scoreStyle = new Label.LabelStyle(new BitmapFont(), new Color(1,1,1,1));
         scoreStyle.font.getData().setScale(4);
-        scoreLabel = new Label("0", scoreStyle);
+        scoreLabel = new Label("Score: 0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
+
         mole.setSize(100,100);
+
+        slapMusic = Gdx.audio.newMusic(Gdx.files.internal("slap.mp3"));
+        slapMusic.setLooping(true);
+        slapMusic.play();
+
+
     }
 
     
@@ -71,6 +81,12 @@ public class WhackAMole extends GameScreen {
                 xMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 yMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 mole.remove();
+                score ++ ;
+                scoreLabel.setText("Score: " + score);
+                if (score % 10 == 0) {
+                    nextLevel();
+                }
+
                 mole.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
@@ -96,6 +112,9 @@ public class WhackAMole extends GameScreen {
 
     @Override
     public void setActionsForActors() {
+    } private  void nextLevel() {
+        MAX_MOVE++;
+        
     }
 
     @Override
