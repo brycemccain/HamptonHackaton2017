@@ -29,13 +29,10 @@ public class WhackAMole extends GameScreen {
     private int score = 0;
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
-<<<<<<< HEAD
-    
-=======
+
     private Sound dropSound;
     private Music rainMusic;
-
->>>>>>> ae33857372268c5408ff2daf1e05ec972c85b48f
+    
     @Override
     public void initialize() {
         score = 0;
