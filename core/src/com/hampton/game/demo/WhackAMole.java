@@ -24,7 +24,7 @@ public class WhackAMole extends GameScreen {
     private Actor mole;
     private float xMove;
     private float yMove;
-    private final float MAX_MOVE = 10;
+    private  float MAX_MOVE = 40;
     private int score = 0;
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
@@ -70,6 +70,9 @@ public class WhackAMole extends GameScreen {
                 mole.remove();
                 score ++ ;
                 scoreLabel.setText("Score: " + score);
+                if (score % 10 == 0) {
+                    nextLevel();
+                }
 
                 mole.addAction(new Action() {
                     @Override
@@ -96,6 +99,9 @@ public class WhackAMole extends GameScreen {
 
     @Override
     public void setActionsForActors() {
+    } private  void nextLevel() {
+        MAX_MOVE++;
+        
     }
 
     @Override
