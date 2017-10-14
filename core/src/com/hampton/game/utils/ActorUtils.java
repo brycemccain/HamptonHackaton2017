@@ -37,6 +37,7 @@ public class ActorUtils {
         style.fontColor = color;
         Label actor = new Label(text, style);
         actor.setOrigin(actor.getWidth()/2, actor.getHeight()/2);
+        style.font.getData().setScale(4);
         return actor;
     }
 
