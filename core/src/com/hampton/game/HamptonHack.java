@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.hampton.game.demo.NinjaBounce;
+import com.hampton.game.demo.WhackAMole;
 
 public class HamptonHack extends ApplicationAdapter {
 	ScreenViewport viewport;
@@ -20,7 +20,7 @@ public class HamptonHack extends ApplicationAdapter {
 	}
 
 	public void addGameScreensHere() {
-		stateManager.setGameScreen("Bounce", new NinjaBounce());
+		stateManager.setGameScreen("Bounce", new WhackAMole());
 		stateManager.goToScreen("Bounce");
 	}
 
