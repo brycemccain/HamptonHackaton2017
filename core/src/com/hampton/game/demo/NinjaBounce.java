@@ -18,7 +18,7 @@ import com.hampton.game.utils.ActorUtils;
  */
 public class NinjaBounce extends GameScreen {
 
-    private Actor ninja;
+    private Actor mole;
     private float xMove;
     private float yMove;
     private final float MAX_MOVE = 10;
@@ -30,40 +30,40 @@ public class NinjaBounce extends GameScreen {
 
     @Override
     public void createActors() {
-        backgroundColor = new Color(1, 1, 1, 1);
-        ninja = ActorUtils.createActorFromImage("ninja-2swords.png");
-        ninja.setSize(ninja.getWidth()/3, ninja.getHeight()/3);
-        ninja.setPosition(
-                stage.getViewport().getScreenWidth()/2 - ninja.getWidth()/2,
-                stage.getViewport().getScreenHeight()/2 - ninja.getHeight()/2);
-        stage.addActor(ninja);
+        backgroundColor = new Color(0, 1, 1, 1);
+        mole = ActorUtils.createActorFromImage("animal-158236_1280.png");
+        mole.setSize(mole.getWidth()/3, mole.getHeight()/3);
+        mole.setPosition(
+                stage.getViewport().getScreenWidth()/2 - mole.getWidth()/2,
+                stage.getViewport().getScreenHeight()/2 - mole.getHeight()/2);
+        stage.addActor(mole);
     }
 
     @Override
     public void setInputForActors() {
-        ninja.addListener(new ActorGestureListener() {
+        mole.addListener(new ActorGestureListener() {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 // Stop any other actions
-                ninja.clearActions();
+                mole.clearActions();
                 xMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 yMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
-                ninja.addAction(new Action() {
+                mole.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
-                        if (ninja.getX() + xMove < 0) {
+                        if (mole.getX() + xMove < 0) {
                             xMove = -xMove;
                         }
-                        if (ninja.getX() + ninja.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                        if (mole.getX() + mole.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                             xMove = -xMove;
                         }
-                        if (ninja.getY() + yMove < 0) {
+                        if (mole.getY() + yMove < 0) {
                             yMove = -yMove;
                         }
-                        if (ninja.getY() + ninja.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
+                        if (mole.getY() + mole.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
                             yMove = -yMove;
                         }
-                        ninja.moveBy(xMove, yMove);
+                        mole.moveBy(xMove, yMove);
                         return false;
                     }
                 });
@@ -82,13 +82,13 @@ public class NinjaBounce extends GameScreen {
             Vector2 touchPoint = new Vector2(
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getY());
-            // Only move to the point if we didn't click on the ninja
-            if(!ActorUtils.actorContainsPoint(ninja, touchPoint)) {
-                ninja.clearActions();
+            // Only move to the point if we didn't click on the mole
+            if(!ActorUtils.actorContainsPoint(mole, touchPoint)) {
+                mole.clearActions();
                 // Move to touched location in 3 seconds
-                ninja.addAction(Actions.moveTo(
-                        touchPoint.x - ninja.getWidth() / 2,
-                        touchPoint.y - ninja.getHeight() / 2,
+                mole.addAction(Actions.moveTo(
+                        touchPoint.x - mole.getWidth() / 2,
+                        touchPoint.y - mole.getHeight() / 2,
                         3,
                         Interpolation.circleOut));
             }
