@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -43,6 +44,11 @@ public class ActorUtils {
         Rectangle aBounds = new Rectangle(a.getX(), a.getY(), a.getWidth(), a.getHeight());
         Rectangle bBounds = new Rectangle(b.getX(), b.getY(), b.getWidth(), b.getHeight());
         return aBounds.overlaps(bBounds);
+    }
+
+    public static boolean actorContainsPoint(Actor actor, Vector2 point) {
+        return point.x >= actor.getX() && point.x < actor.getX() + actor.getWidth()
+                && point.y >= actor.getY() && point.y < actor.getY() + actor.getHeight();
     }
 
     public static float getRandomFloat(float low, float high) {
