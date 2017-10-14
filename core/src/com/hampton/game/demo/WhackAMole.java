@@ -28,6 +28,8 @@ public class WhackAMole extends GameScreen {
     private int score = 0;
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
+    private int level = 0;
+    private Label levelLabel;
 
     private Music slapMusic;
     
@@ -37,11 +39,10 @@ public class WhackAMole extends GameScreen {
         scoreStyle = new Label.LabelStyle(new BitmapFont(), new Color(1,1,1,1));
         scoreStyle.font.getData().setScale(4);
         scoreLabel = new Label("Score: 0", scoreStyle);
+        levelLabel = new Label("Level: 0", level);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
         slapMusic = Gdx.audio.newMusic(Gdx.files.internal("slap.mp3"));
-        slapMusic.setLooping(true);
-        slapMusic.play();
 
     }
 
@@ -69,8 +70,10 @@ public class WhackAMole extends GameScreen {
                 yMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 mole.remove();
                 score ++ ;
-                scoreLabel.setText("Score: " + score);
-                if (score % 10 == 0) {
+                level = ;
+                slapMusic.play();
+                scoreLabel.setText("Score: " + score + " Level: " + (level));
+                if (score % 10 == 0 ) {
                     nextLevel();
                 }
 
