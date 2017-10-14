@@ -16,7 +16,7 @@ import com.hampton.game.utils.ActorUtils;
 /**
  * Created by turnerd on 10/13/17.
  */
-public class NinjaBounce extends GameScreen {
+public class WhackAMole extends GameScreen {
 
     private Actor mole;
     private float xMove;
