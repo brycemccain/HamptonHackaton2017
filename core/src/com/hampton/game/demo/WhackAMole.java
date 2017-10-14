@@ -16,15 +16,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.hampton.game.GameScreen;
 import com.hampton.game.utils.ActorUtils;
 
-/**
- * Created by turnerd on 10/13/17.
- */
+//* Created by turnerd on 10/13/17.
+
 public class WhackAMole extends GameScreen {
 
     private Actor mole;
     private float xMove;
     private float yMove;
-    private final float MAX_MOVE = 10;
+    private  float MAX_MOVE = 40;
     private int score = 0;
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
@@ -39,9 +38,13 @@ public class WhackAMole extends GameScreen {
         scoreLabel = new Label("Score: 0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
+
+        mole.setSize(100,100);
+
         slapMusic = Gdx.audio.newMusic(Gdx.files.internal("slap.mp3"));
         slapMusic.setLooping(true);
         slapMusic.play();
+
 
     }
 
@@ -49,7 +52,17 @@ public class WhackAMole extends GameScreen {
 
     @Override
     public void createActors() {
+        //call addMole
+        addMole();
         backgroundColor = new Color(0, 1, 1, 1);
+        mole.setSize(mole.getWidth()/3, mole.getHeight()/3);
+        mole.setPosition(
+                stage.getViewport().getScreenWidth()/2 - mole.getWidth()/2,
+                stage.getViewport().getScreenHeight()/2 - mole.getHeight()/2);
+        stage.addActor(mole);
+    }
+
+    public void addMole() {
         mole = ActorUtils.createActorFromImage("animal-158236_1280.png");
         mole.setSize(mole.getWidth()/3, mole.getHeight()/3);
         mole.setPosition(
@@ -70,6 +83,9 @@ public class WhackAMole extends GameScreen {
                 mole.remove();
                 score ++ ;
                 scoreLabel.setText("Score: " + score);
+                if (score % 10 == 0) {
+                    nextLevel();
+                }
 
                 mole.addAction(new Action() {
                     @Override
@@ -96,6 +112,9 @@ public class WhackAMole extends GameScreen {
 
     @Override
     public void setActionsForActors() {
+    } private  void nextLevel() {
+        MAX_MOVE++;
+        
     }
 
     @Override
