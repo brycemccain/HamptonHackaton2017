@@ -48,8 +48,9 @@ public class WhackAMole extends GameScreen {
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
 
-        slapMusic = Gdx.audio.newMusic(Gdx.files.internal("slap.mp3"));
-
+        slapMusic = Gdx.audio.newMusic(Gdx.files.internal("music_david_gwyn_jones_singing_away_instrumental.mp3"));
+        slapMusic.play();
+        slapMusic.setLooping(true);
 
     }
 
