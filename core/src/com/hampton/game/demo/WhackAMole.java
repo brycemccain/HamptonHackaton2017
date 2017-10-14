@@ -61,7 +61,6 @@ public class WhackAMole extends GameScreen {
                 xMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 yMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 mole.remove();
-                stage.addActor(mole);
                 mole.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
@@ -108,8 +107,8 @@ public class WhackAMole extends GameScreen {
 
             }
         }
-        if(){
-
+        if(numFrames % 115 == 0){
+            stage.addActor(mole);
         }
     }
 }
