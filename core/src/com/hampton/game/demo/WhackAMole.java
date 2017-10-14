@@ -27,7 +27,7 @@ public class WhackAMole extends GameScreen {
     private int score = 0;
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
-
+    
     @Override
     public void initialize() {
         score = 0;
