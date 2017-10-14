@@ -27,6 +27,8 @@ public class WhackAMole extends GameScreen {
     private int score = 0;
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
+    private Sound dropSound;
+    private Music rainMusic;
 
     @Override
     public void initialize() {
@@ -36,6 +38,13 @@ public class WhackAMole extends GameScreen {
         scoreLabel = new Label("0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
+        dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
+        rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+        rainMusic.setLooping(true);
+        rainMusic.play();
+        for (Actor raindrop : stage.getActors()) {
+            if (raindrop.getName() != null && raindrop.getName().equals("drop")) {
+                raindrop.remove();
     }
 
     
