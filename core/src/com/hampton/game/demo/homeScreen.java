@@ -22,7 +22,7 @@ public class homeScreen extends GameScreen {
     @Override
     public void createActors() {
 
-        buttonFromText = ActorUtils.createButtonFromText("Welcome to Whack-A-Mole! Click to go to Whack-A-Mole!",
+        buttonFromText = ActorUtils.createButtonFromText("CLICK HERE",
                 new Color(1, 1, 1, 1));
         stage.addActor(buttonFromText);
         backgroundColor = new Color(0, 0, 1, 1);

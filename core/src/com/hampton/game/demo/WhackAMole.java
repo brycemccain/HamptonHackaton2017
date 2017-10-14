@@ -43,7 +43,7 @@ public class WhackAMole extends GameScreen {
     public void initialize() {
         score = 0;
         scoreStyle = new Label.LabelStyle(new BitmapFont(), new Color(1,1,1,1));
-        scoreStyle.font.getData().setScale(4);
+        scoreStyle.font.getData().setScale(5);
         scoreLabel = new Label("Score: 0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
@@ -58,7 +58,8 @@ public class WhackAMole extends GameScreen {
     public void createActors() {
         //call addMole
         addMole();
-        backgroundColor = new Color(0, 1, 1, 1);
+        Actor clouds = ActorUtils.createActorFromImage("cloud.jpg");
+        stage.addActor(clouds);
     }
 
     public void addMole() {
