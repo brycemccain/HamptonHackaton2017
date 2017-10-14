@@ -1,6 +1,7 @@
 package com.hampton.game.demo;
 
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -22,7 +23,7 @@ public class homeScreen extends GameScreen {
     @Override
     public void createActors() {
 
-        buttonFromText = ActorUtils.createButtonFromText("CLICK HERE",
+        buttonFromText = ActorUtils.createButtonFromText("Welcome to Whack-A-Mole,\n Click anywhere to begin",
                 new Color(1, 1, 1, 1));
         stage.addActor(buttonFromText);
         backgroundColor = new Color(0, 0, 1, 1);
@@ -51,6 +52,6 @@ public class homeScreen extends GameScreen {
 
     @Override
     protected void calledEveryFrame() {
-
+        if (Gdx.input.isTouched()) {gotoScreen("Bounce");}
     }
 }
