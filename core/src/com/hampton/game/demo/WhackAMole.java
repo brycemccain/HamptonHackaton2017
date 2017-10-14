@@ -1,6 +1,8 @@
 package com.hampton.game.demo;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Interpolation;
@@ -42,9 +44,7 @@ public class WhackAMole extends GameScreen {
         rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
         rainMusic.setLooping(true);
         rainMusic.play();
-        for (Actor raindrop : stage.getActors()) {
-            if (raindrop.getName() != null && raindrop.getName().equals("drop")) {
-                raindrop.remove();
+
     }
 
     
