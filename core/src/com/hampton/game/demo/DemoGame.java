@@ -23,7 +23,7 @@ public class DemoGame extends GameScreen {
 
     @Override
     public void createActors() {
-        backgroundColor = new Color(1, 1, 1, 1);
+        backgroundColor = new Color(0, 1, 1, 1);
         actorFromImage = ActorUtils.createActorFromImage("badlogic.jpg");
         actorFromImage.setPosition(70, 70);
         buttonFromText = ActorUtils.createButtonFromText("Go back to menu", new Color(1, 1, 1, 1));
