@@ -58,7 +58,8 @@ public class WhackAMole extends GameScreen {
     public void createActors() {
         //call addMole
         addMole();
-        backgroundColor = new Color(0, 1, 1, 1);
+        Actor clouds = ActorUtils.createActorFromImage("cloud.jpg");
+        stage.addActor(clouds);
     }
 
     public void addMole() {
