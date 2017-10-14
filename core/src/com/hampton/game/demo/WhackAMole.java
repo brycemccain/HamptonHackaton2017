@@ -2,6 +2,7 @@ package com.hampton.game.demo;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -9,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.hampton.game.GameScreen;
 import com.hampton.game.utils.ActorUtils;
@@ -22,11 +24,21 @@ public class WhackAMole extends GameScreen {
     private float xMove;
     private float yMove;
     private final float MAX_MOVE = 10;
+    private int score = 0;
+    private Label.LabelStyle scoreStyle;
+    private Label scoreLabel;
 
     @Override
     public void initialize() {
-
+        score = 0;
+        scoreStyle = new Label.LabelStyle(new BitmapFont(), new Color(1,1,1,1));
+        scoreStyle.font.getData().setScale(4);
+        scoreLabel = new Label("0", scoreStyle);
+        scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
+        stage.addActor(scoreLabel);
     }
+
+    
 
     @Override
     public void createActors() {
