@@ -2,7 +2,6 @@ package com.hampton.game.demo;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Interpolation;
@@ -30,8 +29,7 @@ public class WhackAMole extends GameScreen {
     private Label.LabelStyle scoreStyle;
     private Label scoreLabel;
 
-    private Sound dropSound;
-    private Music rainMusic;
+    private Music slapMusic;
     
     @Override
     public void initialize() {
@@ -41,10 +39,9 @@ public class WhackAMole extends GameScreen {
         scoreLabel = new Label("Score: 0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
-        dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
-        rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
-        rainMusic.setLooping(true);
-        rainMusic.play();
+        slapMusic = Gdx.audio.newMusic(Gdx.files.internal("slap.mp3"));
+        slapMusic.setLooping(true);
+        slapMusic.play();
 
     }
 
