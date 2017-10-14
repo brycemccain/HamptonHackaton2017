@@ -33,7 +33,7 @@ public class WhackAMole extends GameScreen {
         score = 0;
         scoreStyle = new Label.LabelStyle(new BitmapFont(), new Color(1,1,1,1));
         scoreStyle.font.getData().setScale(4);
-        scoreLabel = new Label("0", scoreStyle);
+        scoreLabel = new Label("Score: 0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight());
         stage.addActor(scoreLabel);
     }
@@ -61,6 +61,9 @@ public class WhackAMole extends GameScreen {
                 xMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 yMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 mole.remove();
+                score ++ ;
+                scoreLabel.setText("Score: " + score);
+
                 mole.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
