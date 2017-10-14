@@ -48,6 +48,8 @@ public class WhackAMole extends GameScreen {
                 mole.clearActions();
                 xMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
                 yMove = MathUtils.random(MAX_MOVE) - MAX_MOVE/2;
+                mole.remove();
+                stage.addActor(mole);
                 mole.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
@@ -91,7 +93,11 @@ public class WhackAMole extends GameScreen {
                         touchPoint.y - mole.getHeight() / 2,
                         3,
                         Interpolation.circleOut));
+
             }
+        }
+        if(){
+
         }
     }
 }
