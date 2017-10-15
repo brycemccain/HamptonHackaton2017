@@ -60,6 +60,7 @@ public class WhackAMole extends GameScreen {
         //call addMole
         addMole();
         Actor clouds = ActorUtils.createActorFromImage("cloud.jpg");
+        clouds.setSize(stage.getViewport().getScreenWidth(),stage.getViewport().getScreenHeight());
         stage.addActor(clouds);
     }
 
